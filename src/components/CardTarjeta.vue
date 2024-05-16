@@ -6,13 +6,8 @@
           <p class="py-2 fw-bold">• Tipo de tarjeta</p>
           <hr />
           <div class="form-floating py-2">
-            <select
-              class="form-select"
-              id="selectTipo"
-              aria-label="Floating label select example"
-              v-model="tarjeta.tituloTarjeta"
-              @change="cambiarTarjeta(tarjeta.tituloTarjeta)"
-            >
+            <select class="form-select" id="selectTipo" aria-label="Floating label select example"
+              v-model="tarjeta.tituloTarjeta" @change="cambiarTarjeta(tarjeta.tituloTarjeta)">
               <option value="" selected>Seleccionar...</option>
               <option value="American Express">American Express</option>
               <option value="MasterCard">MasterCard</option>
@@ -22,14 +17,8 @@
           </div>
 
           <div class="form-floating mb-3">
-            <input
-              type="text"
-              class="form-control"
-              id="tipoTar"
-              placeholder=" "
-              :value="tarjeta.tituloTarjeta"
-              disabled
-            />
+            <input type="text" class="form-control" id="tipoTar" placeholder=" " :value="tarjeta.tituloTarjeta"
+              disabled />
             <label for="tipoTar">Tipo de Tarjeta</label>
           </div>
 
@@ -37,28 +26,15 @@
             <p class="py-2 fw-bold">• Tecnología de tarjeta</p>
             <hr />
             <div class="form-check py-2">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="tipoTarjeta"
-                id="contactLess"
-                v-model="tarjeta.chipTarjeta"
-                :value="true"
-                checked
-              />
+              <input class="form-check-input" type="radio" name="tipoTarjeta" id="contactLess"
+                v-model="tarjeta.chipTarjeta" :value="true" checked />
               <label class="form-check-label" for="contactLess">
                 Contact Less
               </label>
             </div>
             <div class="form-check">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="tipoTarjeta"
-                id="bandaMagnetica"
-                v-model="tarjeta.chipTarjeta"
-                :value="false"
-              />
+              <input class="form-check-input" type="radio" name="tipoTarjeta" id="bandaMagnetica"
+                v-model="tarjeta.chipTarjeta" :value="false" />
               <label class="form-check-label" for="bandaMagnetica">
                 Banda Magnética
               </label>
@@ -67,47 +43,25 @@
           <p class="py-2 fw-bold">• Datos Cliente</p>
           <hr />
           <div class="form-floating mb-3">
-            <input
-              type="text"
-              class="form-control"
-              id="nombreTar"
-              placeholder=""
-              value=""
-              v-model="tarjeta.nomTarjeta"
-            />
+            <input type="text" class="form-control" id="nombreTar" placeholder="" value=""
+              v-model="tarjeta.nomTarjeta" />
             <label for="nombreTar">Nombre cliente</label>
           </div>
           <div class="col-12">
-            <button
-              id="generaCard"
-              class="btn btn-success py-2 w-100"
-              @click="generarNumero()"
-            >
+            <button id="generaCard" class="btn btn-success py-2 w-100" @click="generarNumero()">
               Generar Datos de Tarjeta
             </button>
           </div>
           <p class="py-2 fw-bold">• Datos Tarjeta</p>
           <hr />
           <div class="form-floating py-2">
-            <input
-              type="text"
-              class="form-control"
-              id="numeroTar"
-              placeholder=" "
-              value=" "
-              v-model="tarjeta.numTarjeta"
-            />
+            <input type="text" class="form-control" id="numeroTar" placeholder=" " value=" "
+              v-model="tarjeta.numTarjeta" />
             <label for="numeroTar">Número tarjeta (12 dígitos)</label>
           </div>
           <div class="form-floating py-2">
-            <input
-              type="text"
-              class="form-control"
-              id="expTarjeta"
-              placeholder=""
-              value=""
-              v-model="tarjeta.fechaExp"
-            />
+            <input type="text" class="form-control" id="expTarjeta" placeholder="" value=""
+              v-model="tarjeta.fechaExp" />
             <label for="expTarjeta">Fecha expiración (mes/año)</label>
           </div>
         </form>
@@ -115,11 +69,7 @@
       <div class="col-12 col-md-6" id="vistaTarjeta">
         <div class="tarjeta">
           <span>{{ tarjeta.tituloTarjeta }}</span>
-          <img
-            width="40"
-            src="./assets/img/chip.jpg"
-            v-if="tarjeta.chipTarjeta"
-          />
+          <img width="40" src="../assets/img/chip.png" v-if="tarjeta.chipTarjeta" />
           <!-- <img
             width="40"
             :src="tarjeta.chipTarjeta"
@@ -128,10 +78,8 @@
           <div class="cajaChip" v-if="!tarjeta.chipTarjeta"></div>
           <div>
             <h2>{{ tarjeta.numTarjeta }}</h2>
-            <span
-              >Fecha Exp:
-              <b class="vencimiento">{{ tarjeta.fechaExp }}</b></span
-            >
+            <span>Fecha Exp:
+              <b class="vencimiento">{{ tarjeta.fechaExp }}</b></span>
           </div>
           <footer>
             <span>{{ tarjeta.nomTarjeta }}</span>
@@ -200,6 +148,7 @@ export default {
 * {
   margin: 0;
 }
+
 .contenedorTarjeta {
   display: flex;
   flex-wrap: nowrap;
@@ -227,6 +176,7 @@ form {
   color: white;
   border-color: none;
 }
+
 form div {
   /* display: grid; */
   /* grid-template-columns: 100px 200px; */
@@ -288,12 +238,10 @@ footer {
   width: 100%;
   height: 35.148px;
   background: rgb(128, 128, 128);
-  background: linear-gradient(
-    72deg,
-    rgba(128, 128, 128, 1) 0%,
-    rgba(113, 113, 113, 1) 22%,
-    rgba(208, 208, 208, 1) 100%
-  );
+  background: linear-gradient(72deg,
+      rgba(128, 128, 128, 1) 0%,
+      rgba(113, 113, 113, 1) 22%,
+      rgba(208, 208, 208, 1) 100%);
 }
 
 #vistaTarjeta {
